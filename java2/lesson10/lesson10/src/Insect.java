@@ -56,6 +56,48 @@ public class Insect {
         return FACTS[index];
     }
 
+// accessor methods
+    // instance variable getters first
+    public double getWeight() {
+        return weight;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    // static variable getter
+    public static int getPopulation() {
+        return population;
+    }
+
+// Mutator methods
+    public void setX(int newX) {
+        if (isLegalX(newX)) {
+            x = newX;
+        }
+    }
+
+    public void setY(int newY) {
+        if (isLegalY(newY)) {
+            y = newY;
+        }
+    }
+
+    public static boolean isLegalX(int newX) {
+        return newX >= 0 ? true : false;
+    }
+
+    public static boolean isLegalY(int newY) {
+        return newY >= 0 ? true : false;
+    }
+
+
+    // Main
     public static void main(String[] args) {
         System.out.println("Insect population: " + population);
         Insect bug1 = new Insect(5, 10, 20);
