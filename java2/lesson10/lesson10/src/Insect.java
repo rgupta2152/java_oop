@@ -11,6 +11,11 @@ public class Insect {
         // private at the class level means it cannot be accessed or modified by methods outside this class
     public static final double DIST_WEIGHT_LOSS_FACTOR = 0.0001;
     private static int population = 0;
+    private static final String[] FACTS = {
+            "Fact 1",
+            "Fact 2",
+            "Fact 3",
+            "Fact 4"};
 
     // constructor
         // public: we want other classes to be able to constructor insect instances
@@ -46,6 +51,11 @@ public class Insect {
         return Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
     }
 
+    public static String produceRandomFact() {
+        int index = (int) (Math.random() * (FACTS.length - 1) + 1);
+        return FACTS[index];
+    }
+
     public static void main(String[] args) {
         System.out.println("Insect population: " + population);
         Insect bug1 = new Insect(5, 10, 20);
@@ -55,6 +65,8 @@ public class Insect {
 
         bug1.move(10, 20);
         bug2.move(10, 20);
+
+        System.out.println(produceRandomFact());
     }
 
 }
